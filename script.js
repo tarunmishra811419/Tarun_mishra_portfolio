@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Animated typing effect for the name/title section
   const spanElement = document.querySelector('.trial span');
   const words = ['web developer', 'programmer', 'Tarun Mishra'];
   let wordIndex = 0;
@@ -8,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function typeWriter() {
     const currentWord = words[wordIndex];
-    
+
     if (isDeleting) {
       spanElement.textContent = currentWord.substring(0, charIndex - 1);
       charIndex--;
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
       charIndex++;
     }
 
-    // Change color based on word
     if (currentWord === 'web developer') {
       spanElement.style.color = '#00ff7f';
     } else if (currentWord === 'programmer') {
@@ -37,16 +35,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   typeWriter();
 
-  // Contact form functionality
   const form = document.querySelector('#message form');
   const emailInput = form.querySelector('input[placeholder*="mail"]');
   const subjectInput = form.querySelector('input[placeholder*="topic"]');
   const messageInput = document.getElementById('big');
-  const sendButton = form.querySelector('button');
 
   form.addEventListener('submit', function(e) {
     e.preventDefault();
-    
+
     const email = emailInput.value.trim();
     const subject = subjectInput.value.trim();
     const message = messageInput.value.trim();
@@ -62,14 +58,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const mailtoLink = `mailto:tarunmishra811419@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
-    
     form.reset();
     showNotification('Opening your email client...', 'success');
-    
     window.location.href = mailtoLink;
   });
 
-  // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
@@ -80,30 +73,24 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Add click animations to project cards
   document.querySelectorAll('#b1, #b2, #b3').forEach(card => {
     card.addEventListener('click', function() {
       this.style.transform = 'scale(0.95)';
-      setTimeout(() => {
-        this.style.transform = '';
-      }, 150);
+      setTimeout(() => { this.style.transform = ''; }, 150);
     });
   });
 
-  // Input focus effects
   document.querySelectorAll('#message input').forEach(input => {
     input.addEventListener('focus', function() {
       this.style.backgroundColor = '#e3f2fd';
       this.style.transform = 'scale(1.02)';
     });
-    
     input.addEventListener('blur', function() {
       this.style.backgroundColor = 'lightblue';
       this.style.transform = '';
     });
   });
 
-  // Notification function
   function showNotification(message, type) {
     const notification = document.createElement('div');
     notification.style.cssText = `
@@ -122,26 +109,17 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
     notification.textContent = message;
     document.body.appendChild(notification);
-
-    setTimeout(() => {
-      notification.style.transform = 'translateX(0)';
-    }, 100);
-
+    setTimeout(() => { notification.style.transform = 'translateX(0)'; }, 100);
     setTimeout(() => {
       notification.style.transform = 'translateX(400px)';
-      setTimeout(() => {
-        document.body.removeChild(notification);
-      }, 300);
+      setTimeout(() => { document.body.removeChild(notification); }, 300);
     }, 3000);
   }
 
-  // Email validation
   function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
-  // Scroll animations
   function handleScrollAnimations() {
     const elements = document.querySelectorAll('#projects > div, #skill > div, #edu, #data');
     elements.forEach(el => {
@@ -154,16 +132,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   window.addEventListener('scroll', handleScrollAnimations);
-  handleScrollAnimations(); // Initial call
+  handleScrollAnimations();
 });
 
-
-// Add entrance animation to elements on page load
 window.addEventListener('load', function() {
   document.body.style.opacity = '0';
   document.body.style.transform = 'translateY(30px)';
   document.body.style.transition = 'all 0.8s ease';
-  
   setTimeout(() => {
     document.body.style.opacity = '1';
     document.body.style.transform = 'translateY(0)';
