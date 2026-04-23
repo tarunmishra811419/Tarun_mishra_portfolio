@@ -84,4 +84,88 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('#b1, #b2, #b3').forEach(card => {
     card.addEventListener('click', function() {
       this.style.transform = 'scale(0.95)';
-      setTimeout(()
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 150);
+    });
+  });
+
+  // Input focus effects
+  document.querySelectorAll('#message input').forEach(input => {
+    input.addEventListener('focus', function() {
+      this.style.backgroundColor = '#e3f2fd';
+      this.style.transform = 'scale(1.02)';
+    });
+    
+    input.addEventListener('blur', function() {
+      this.style.backgroundColor = 'lightblue';
+      this.style.transform = '';
+    });
+  });
+
+  // Notification function
+  function showNotification(message, type) {
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 15px 20px;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      z-index: 1000;
+      transform: translateX(400px);
+      transition: transform 0.3s ease;
+      background: ${type === 'success' ? '#4CAF50' : '#f44336'};
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    `;
+    notification.textContent = message;
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+      notification.style.transform = 'translateX(0)';
+    }, 100);
+
+    setTimeout(() => {
+      notification.style.transform = 'translateX(400px)';
+      setTimeout(() => {
+        document.body.removeChild(notification);
+      }, 300);
+    }, 3000);
+  }
+
+  // Email validation
+  function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  // Scroll animations
+  function handleScrollAnimations() {
+    const elements = document.querySelectorAll('#projects > div, #skill > div, #edu, #data');
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      }
+    });
+  }
+
+  window.addEventListener('scroll', handleScrollAnimations);
+  handleScrollAnimations(); // Initial call
+});
+
+
+// Add entrance animation to elements on page load
+window.addEventListener('load', function() {
+  document.body.style.opacity = '0';
+  document.body.style.transform = 'translateY(30px)';
+  document.body.style.transition = 'all 0.8s ease';
+  
+  setTimeout(() => {
+    document.body.style.opacity = '1';
+    document.body.style.transform = 'translateY(0)';
+  }, 200);
+});
