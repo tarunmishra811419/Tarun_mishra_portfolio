@@ -50,13 +50,21 @@
 }
 
 @keyframes moveLeft {
-  from { transform: translateX(100%); }
-  to   { transform: translateX(-100%); }
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 .anchor {
   display: flex;
   margin: auto;
+  color: inherit;
+  color: mediumslateblue;
+  text-decoration: none;
   font-size: 30px;
   transition: 0.3s ease;
 }
@@ -83,6 +91,7 @@
   transition: transform 0.5s ease;
   border-radius: 15px;
   margin-right: 700px;
+  
 }
 
 #data:hover {
@@ -101,10 +110,21 @@ body {
 }
 
 @keyframes bgChange {
-  0%   { background-image: url("https://media.gettyimages.com/id/1469875556/video/4k-abstract-lines-background-loopable.jpg?s=640x640&k=20&c=oRhmLOFm1rQPZQSQrUqnd8eRd8LsoGLmiQS7nMIh-MU="); }
-  33%  { background-image: url("https://www.shutterstock.com/shutterstock/videos/3606751217/thumb/1.jpg?ip=x480"); }
-  66%  { background-image: url("https://images.pexels.com/photos/1629236/pexels-photo-1629236.jpeg?cs=srgb&dl=pexels-suzyhazelwood-1629236.jpg&fm=jpg"); }
-  100% { background-image: url("https://t4.ftcdn.net/jpg/05/27/85/63/360_F_527856318_cMFR5LhMcYMCADbPNMP3gngJ3galXPkM.jpg"); }
+  0% {
+    background-image: url("https://media.gettyimages.com/id/1469875556/video/4k-abstract-lines-background-loopable.jpg?s=640x640&k=20&c=oRhmLOFm1rQPZQSQrUqnd8eRd8LsoGLmiQS7nMIh-MU=");
+  }
+
+  33% {
+    background-image: url("https://www.shutterstock.com/shutterstock/videos/3606751217/thumb/1.jpg?ip=x480");
+  }
+
+  66% {
+    background-image: url("https://images.pexels.com/photos/1629236/pexels-photo-1629236.jpeg?cs=srgb&dl=pexels-suzyhazelwood-1629236.jpg&fm=jpg");
+  }
+
+  100% {
+    background-image: url("https://t4.ftcdn.net/jpg/05/27/85/63/360_F_527856318_cMFR5LhMcYMCADbPNMP3gngJ3galXPkM.jpg");
+  }
 }
 
 #projects {
@@ -302,20 +322,41 @@ body {
 }
 
 @keyframes words {
-  0%,  33% { content: 'web developer'; color: #00ff7f; }
-  34%, 66% { content: 'programmer';    color: chartreuse; }
-  67%,100% { content: 'Tarun Mishra';  color: khaki; }
+
+  0%,
+  33% {
+    content: 'web developer';
+    color: #00ff7f;
+  }
+
+  34%,
+  50% {
+    content: 'Tech Enthusiast';
+    color: #e212d8;
+  }
+
+  51%,
+  66% {
+    content: 'programmer';
+    color: chartreuse;
+  }
+
+  67%,
+  100% {
+    content: 'Tarun Mishra';
+    color: khaki;
+  }
 }
 
 #connect {
-  height: 30px;
+  height: 50px;
   width: 100%;
   text-align: center;
   justify-content: center;
-  color: beige;
+  color: rgba(163, 23, 222, 0.885);
   font-size: larger;
   background-color: black;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 #message {
@@ -329,8 +370,8 @@ body {
 }
 
 #message #mes {
-  color:goldenrod;
-  font-size:xx-large;
+  color: goldenrod;
+  font-size: xx-large;
   font-weight: bold;
   text-decoration: underline;
 }
@@ -459,7 +500,9 @@ body {
     padding: 10px 0 !important;
   }
 
-  #b1, #b2, #b3 {
+  #b1,
+  #b2,
+  #b3 {
     width: 95% !important;
     height: auto !important;
     min-height: 160px !important;
@@ -474,7 +517,9 @@ body {
     width: 95% !important;
   }
 
-  #s1, #s2, #s3 {
+  #s1,
+  #s2,
+  #s3 {
     width: 95% !important;
     height: auto !important;
     min-height: 160px !important;
